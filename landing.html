@@ -52,18 +52,40 @@
             font-size: 22px;
             margin-bottom: 40px;
         }
-        .head-background {
+        .head-section {
             background-image: url("assets/images/head-background.png");
+            color: white;
         }
         .testi-section {
             background-image: url(assets/images/testi-background-1500x540.png);
         }
         .js-fullscreen {
-            display: flex;
+            /* display: flex; */
             align-items: center;
             height: 100vh;
             min-height: 100vh;
             padding: 3rem 0;
+        }
+        .quote-form {
+            display: block;
+            margin: 70px auto;
+            width: 500px;
+        }
+        .form-title {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .form-title > span:first-child {
+            font-size: 22px;
+        }
+        .form-title > span:last-child {
+            font-size: 42px;
+            font-family: "Lato Bold";
+        }
+        .form-wrapper {
+            height: 500px;
+            background-color: #ffffff3d;
+            border: 1px solid #ffffff5e;
         }
         .card-img, .outer-circle {
             display: flex;
@@ -98,14 +120,23 @@
         .btn-center {
             text-align: center;
         }
+        .btn-quote, .btn-quote-yellow {
+            font-family: "Lato Black";
+            margin-top: 40px;
+        }
         .btn-quote {
             font-size: 18px;
             color: #0067c5;
-            font-family: "Lato Black";
             padding: 12px 55px;
             border: 2px solid #ececec;
-            margin-top: 40px;
             background-color: #fbfbfb;
+        }
+        .btn-quote-yellow {
+            font-size: 16px;
+            color: #000000;
+            padding: 8px 55px;
+            background-color: #fdba2e;
+            border-radius: inherit;
         }
         .card-text {
             color: #808080;
@@ -217,13 +248,24 @@
         amp-accordion p {
             font-size: 16px;
         }
+        amp-accordion > section {
+            padding: 0;
+        }
+        .faq-section amp-accordion {
+            margin: 40px 0;
+        }
         .accordian-expander {
             display: inline-block;
+            background-color: transparent;
+            border: none;
             border-bottom: 1px solid #dadada;
             padding: 20px 0;
             width: 100%;
             line-height: 30px;
             font-size: 18px;
+        }
+        .accordian-expander:focus {
+            outline: none;
         }
         .accordian-expander > *:first-child {
             float: left;
@@ -236,9 +278,90 @@
             border-radius: 17%;
             padding: 0 7px;
         }
+        .round-square-border amp-img {
+            vertical-align: middle;
+        }
+        .footer-section {
+            color: #ffffff;
+            background: linear-gradient(#0b254b, #04192a);
+        }
+        .footer-section .row div[id^="footer-"] {
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .footer-section ul li {
+            padding: 7px 0;
+        }
+        .terms-conditions {
+            margin-top: 50px;
+            padding-top: 50px;
+            font-size: 15px;
+        }
+        .terms-conditions span:not(:first-child) {
+            padding-left: 20px;
+            margin-left: 20px;
+            border-left: 1px solid #9e9e9e;
+        }
+        #footer-quote {
+            font-size: 32px;
+        }
+        #footer-about, #footer-contact {
+            font-size: 15px;
+        }
+        #footer-contact .row {
+            margin-bottom: 15px;
+        }
+        #footer-contact .row div[class^="col-"] {
+            margin: 7px 0;
+        }
+
+        #footer-about > p {
+            margin-top: 28px;            
+        }
+        #footer-company > p,
+        #footer-contact > p {
+            font-size: 20px;
+        }
+        .contact-info {
+            position: relative;
+            padding-left: 29px;
+        }
+        .contact-info amp-img {
+            position: absolute;
+            left: 0;
+        }
+        #footer-company {
+            font-size: 16px;
+        }
+        #footer-company ul {
+            color: #d0d0d0;
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+        #social-icons {
+            margin-top: 40px;
+        }
+        #social-icons img:not(:first-child) {
+            margin-left: 8px;
+        }
+
         @media (min-width: 992px) {
             .plan-container {
                 max-width: 900px;
+            }
+        }
+        @media (min-width: 768px) {
+            .terms-conditions > *:first-child {
+                float: right;
+            }
+            .terms-conditions > *:last-child {
+                float: left;
+            }
+            .terms-conditions {
+                border-top: 1px solid #1e3346;
             }
         }
         @media (max-width: 767px) {
@@ -251,8 +374,16 @@
                 -moz-box-shadow: 0px 0px 19px 2px #f3f3f3;
                 box-shadow: 0px 0px 19px 2px #f3f3f3;
             }
-            section div[class^="col-"]:not(:last-child) {
-                margin-bottom: 30px;
+            .terms-conditions {
+                text-align: center;
+            }
+            .terms-conditions > *:first-child {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #1e3346;
+            }
+            #footer-quote {
+                text-align: center;
             }
         }
         </style>
@@ -265,12 +396,16 @@
         
     </head>
     <body>
-        <section class="head-background js-fullscreen">
+        <section class="head-section">
+            <div class="quote-form">
+                <div class="form-title"><span>SAVE TIME SAVE MONEY.</span><br/><span>Find the Right Insurance.</span></div>
+                <div class="form-wrapper"></div>
+            </div>
         </section>
         <section class="usp-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-img">
                                 <div class="outer-circle">
@@ -288,7 +423,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-img">
                                 <div class="outer-circle">
@@ -306,7 +441,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-img">
                                 <div class="outer-circle">
@@ -324,7 +459,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="card">
                             <div class="card-img">
                                 <div class="outer-circle">
@@ -494,8 +629,8 @@
                                 <div class="accordian-expander">
                                     <div>What happens at the end of my trial?</div>
                                     <div class="round-square-border">
-                                        <img src="assets/images/plus.png" class="show-more" width="16" height="16"></img>
-                                        <img src="assets/images/minus.png" class="show-less" width="16" height="2"></img>
+                                        <amp-img src="assets/images/plus.png" class="show-more" width="16" height="16"></amp-img>
+                                        <amp-img src="assets/images/minus.png" class="show-less" width="16" height="2"></amp-img>
                                     </div>
                                 </div>
                                 <p>
@@ -506,8 +641,8 @@
                                 <div class="accordian-expander">
                                     <div>Is it good for me?</div>
                                     <div class="round-square-border">
-                                        <img src="assets/images/plus.png" class="show-more" width="16" height="16"></img>
-                                        <img src="assets/images/minus.png" class="show-less" width="16" height="2"></img>
+                                        <amp-img src="assets/images/plus.png" class="show-more" width="16" height="16"></amp-img>
+                                        <amp-img src="assets/images/minus.png" class="show-less" width="16" height="2"></amp-img>
                                     </div>
                                 </div>
                                 <p>
@@ -518,8 +653,8 @@
                                 <div class="accordian-expander">
                                     <div>Why Mobirise?</div>
                                     <div class="round-square-border">
-                                        <img src="assets/images/plus.png" class="show-more" width="16" height="16"></img>
-                                        <img src="assets/images/minus.png" class="show-less" width="16" height="2"></img>
+                                        <amp-img src="assets/images/plus.png" class="show-more" width="16" height="16"></amp-img>
+                                        <amp-img src="assets/images/minus.png" class="show-less" width="16" height="2"></amp-img>
                                     </div>
                                 </div>
                                 <p>
@@ -534,8 +669,8 @@
                                 <div class="accordian-expander">
                                     <div>What happens at the end of my trial?</div>
                                     <div class="round-square-border">
-                                        <img src="assets/images/plus.png" class="show-more" width="16" height="16"></img>
-                                        <img src="assets/images/minus.png" class="show-less" width="16" height="2"></img>
+                                        <amp-img src="assets/images/plus.png" class="show-more" width="16" height="16"></amp-img>
+                                        <amp-img src="assets/images/minus.png" class="show-less" width="16" height="2"></amp-img>
                                     </div>
                                 </div>
                                 <p>
@@ -546,8 +681,8 @@
                                 <div class="accordian-expander">
                                     <div>Is it good for me?</div>
                                     <div class="round-square-border">
-                                        <img src="assets/images/plus.png" class="show-more" width="16" height="16"></img>
-                                        <img src="assets/images/minus.png" class="show-less" width="16" height="2"></img>
+                                        <amp-img src="assets/images/plus.png" class="show-more" width="16" height="16"></amp-img>
+                                        <amp-img src="assets/images/minus.png" class="show-less" width="16" height="2"></amp-img>
                                     </div>
                                 </div>
                                 <p>
@@ -558,8 +693,8 @@
                                 <div class="accordian-expander">
                                     <div>Why Mobirise?</div>
                                     <div class="round-square-border">
-                                        <img src="assets/images/plus.png" class="show-more" width="16" height="16"></img>
-                                        <img src="assets/images/minus.png" class="show-less" width="16" height="2"></img>
+                                        <amp-img src="assets/images/plus.png" class="show-more" width="16" height="16"></amp-img>
+                                        <amp-img src="assets/images/minus.png" class="show-less" width="16" height="2"></amp-img>
                                     </div>
                                 </div>
                                 <p>
@@ -567,6 +702,63 @@
                                 </p>
                             </section>
                         </amp-accordion>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6" id="footer-about">
+                        <amp-img src="assets/images/logo.png" width="216" height="59"></amp-img>
+                        <p>Lorem Ipsum is simpley dummy text of the printing and typesetting industry.</p>
+                        <div id="social-icons">
+                            <amp-img src="assets/images/facebook.png" width="40" height="40"></amp-img>
+                            <amp-img src="assets/images/twitter.png" width="40" height="40"></amp-img>
+                            <amp-img src="assets/images/youtube.png" width="40" height="40"></amp-img>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6" id="footer-company">
+                        <p>Company</p>
+                        <div class="row">
+                            <div class="col-sm-12 col-6">
+                                <ul>
+                                    <li>Abust Us</li>
+                                    <li>Reviews</li>
+                                    <li>Media</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-6">
+                                <ul>
+                                    <li>Affiliate Program</li>
+                                    <li>Privacy Policy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6" id="footer-contact">
+                        <p>Contact Information</p>
+                        <div class="row">
+                            <div class="col-sm-12 col-6">
+                                <div class="contact-info"><amp-img src="assets/images/location-pin.png" width="16" height="20"></amp-img>19 Jester Road Blackhealth USA SE3 8TH</div>
+                            </div>
+                            <div class="col-sm-12 col-6">
+                                <div class="contact-info"><amp-img src="assets/images/bag.png" width="18" height="17"></amp-img>94 123 456 789</div>
+                            </div>
+                        </div>
+                        <span>NI reg: 369845B4568</span>
+                    </div>
+                    <div class="col-lg-4 col-sm-6" id="footer-quote">
+                        <div>Ready to get the Right Insurance for your Dog?</div>
+                        <button class="btn btn-quote-yellow">GET A QUOTE</button>
+                    </div>
+                </div>
+                <div class="terms-conditions">
+                    <div class="">
+                        <span>Privacy Policy</span><span>Terms & Conditions</span>
+                    </div>
+                    <div class="">
+                        <p>@2020 MY DOG Insurance. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
