@@ -37,6 +37,7 @@
                 src: url(assets/fonts/lato/Lato-Light.ttf);
             }
             .head-section {
+                position: relative;
                 background: url(assets/images/plan-background.png);   
                 background-size: contain;
                 background-repeat: no-repeat;
@@ -189,6 +190,62 @@
                 position: absolute;
                 left: 0;
             }
+            /* progress bar*/
+            #progressbar {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                margin-bottom: 30px;
+                overflow: hidden;
+            }
+            #progressbar li {
+                list-style-type: none;
+                width: 20%;
+                float: left;
+                position: relative
+            }
+            #progressbar li:before {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                display: block;
+                font-size: 30px;
+                color: #ffffff;
+                background: lightgray;
+                border-radius: 50%;
+                padding: 2px
+            }
+
+            #progressbar li:not(:last-child):after {
+                content: '';
+                width: 100%;
+                height: 2px;
+                background: lightgray;
+                position: absolute;
+                left: 0;
+                top: 12px;
+            }
+
+            #progressbar li.active:before,
+            #progressbar li.active:after {
+                background: skyblue
+            }
+            .badge-positioner {
+                position: relative;
+                z-index: 10;
+                display: inline-block;
+                transform: translateX(-50%);
+            }
+            .badge-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .badge-wrapper amp-img {
+                margin-bottom: 5px;
+                border: 1px solid #ffffff;
+                border-radius: 50%;
+            }
             @media (min-width: 768px) {
                 .terms-conditions > *:first-child {
                     float: right;
@@ -220,7 +277,40 @@
         
         </head>
         <body>
-            <section class="head-section"></section>
+            <section class="head-section">
+                <div class="container">
+                    <ul id="progressbar">
+                        <li class="active">
+                            <div class="badge-positioner">
+                                <div class="badge-wrapper">
+                                    <amp-img src="assets/images/ring-blue.png" width="26" height="26"></amp-img>Get Quote
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="badge-positioner">
+                                <div class="badge-wrapper">
+                                    <amp-img src="assets/images/pet-bottle.png" width="26" height="26"></amp-img>Plan Option
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="badge-positioner">
+                                <div class="badge-wrapper">
+                                    <amp-img src="assets/images/ring-black.png" width="26" height="26"></amp-img>Your Information
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="badge-positioner">
+                                <div class="badge-wrapper">
+                                    <amp-img src="assets/images/ring-black.png" width="26" height="26"></amp-img>Payment
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
             <section class="plans-section">
                 <div class="container">
                     <div class="row" id="dog-info">
@@ -246,8 +336,6 @@
                             <div class="card">
                                 <div class="card-img">
                                     <div class="card-img-wrapper">
-                                        <!-- <amp-img src="assets/images/plan-basic-81x81.png" width="81" height="81"></amp-img>
-                                        <amp-img src="assets/images/favorite-basic.png" class="favorite" width="25" height="25"></amp-img> -->
                                         <amp-img src="assets/images/plan-basic-81x81.png" width="81" height="81"></amp-img>
                                         <amp-img src="assets/images/favorite-basic.png" class="favorite" width="25" height="25"></amp-img>
                                     </div>
@@ -273,8 +361,6 @@
                             <div class="card">
                                 <div class="card-img">
                                     <div class="card-img-wrapper">
-                                        <!-- <amp-img src="assets/images/plan-perfect-81x81.png" width="81" height="81"></amp-img>
-                                        <amp-img src="assets/images/favorite-perfect.png" class="favorite" width="25" height="25"></amp-img> -->
                                         <amp-img src="assets/images/plan-perfect-81x81.png" width="81" height="81"></amp-img>
                                         <amp-img src="assets/images/favorite-perfect.png" class="favorite" width="25" height="25"></amp-img>
                                     </div>
@@ -300,8 +386,6 @@
                             <div class="card">
                                 <div class="card-img">
                                     <div class="card-img-wrapper">
-                                        <!-- <amp-img src="assets/images/plan-premium-81x81.png" width="81" height="81"></amp-img>
-                                        <amp-img src="assets/images/favorite-premium.pn" class="favorite" width="25" height="25"></amp-img> -->
                                         <amp-img src="assets/images/plan-premium-81x81.png" width="81" height="81"></amp-img>
                                         <amp-img src="assets/images/favorite-premium.png" class="favorite" width="25" height="25"></amp-img>
                                     </div>
